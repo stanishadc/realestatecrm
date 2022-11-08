@@ -1,4 +1,4 @@
-# Connect Database
+# Connect Databases
 
 import mysql.connector
 
