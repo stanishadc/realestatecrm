@@ -1,4 +1,4 @@
-# Plots Values Insertion
+# Lands Values Insertion
 
 import mysql.connector
 
@@ -7,9 +7,9 @@ mydb = mysql.connector.connect(host = "208.91.199.11", user = "ztravilr_reuser",
 mycursor = mydb.cursor()
 
 
-data = "INSERT INTO Plots(PlotNo, ProjectID, Status, Facing, PlotSize, Amount, MaintainanceCharges, FacingCharges) VALUES (%s, %s,%s,%s, %s,%s,%s, %s)"
+data = "INSERT INTO Lands (LandId, LandName, DateofPurchase, LandCost) VALUES (%s,%s,%s,%s)"
 
-val = (10, 66, 2, "North", "75 sqft", "85920.10", "45200.00", "21680.80")
+val =  (1041, "Tankbund", "2022-11-09 00-01-00", 2700000.00)
 
 mycursor.execute(data, val)
 
