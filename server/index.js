@@ -22,7 +22,6 @@ app.get("/api/get", (req,res) => {
     });
 });
 
-
 app.get("/", (req,res)=> {
     const sqlInsert = "INSERT INTO Plots (PlotNo, ProjectID, Status, Facing, PlotSize, Amount, MaintainanceCharges, FacingCharges) VALUES (33, 87, 3, 'South', '89 sqft', '99753.50', '75330.00', '35260.99')";
     db.query(sqlInsert, (error,result) => {
@@ -32,7 +31,6 @@ app.get("/", (req,res)=> {
         console.log("Row Created : Go to http://localhost:1000/api/get")
     });
 }); 
-
 
 app.listen(1000, () => {
     console.log(`Heloo User!...  Server is Running on Port: 1000`);
