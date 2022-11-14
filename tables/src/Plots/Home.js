@@ -35,9 +35,15 @@ const AccountType = () => {
         <thead>
           <tr>
             <th style = {{textAlign: "center"}}>DummyID</th>
-            <th style = {{textAlign: "center"}}>Name</th>
-            <th style = {{textAlign: "center"}}>Plots</th>
+            <th style = {{textAlign: "center"}}>PlotId</th>
+            <th style = {{textAlign: "center"}}>PlotNo</th>
+            <th style = {{textAlign: "center"}}>ProjectId</th>
             <th style = {{textAlign: "center"}}>Status</th>
+            <th style = {{textAlign: "center"}}>Facing</th>
+            <th style = {{textAlign: "center"}}>PlotSize</th>
+            <th style = {{textAlign: "center"}}>Amount</th>
+            <th style = {{textAlign: "center"}}>MaintainanceCharges</th>
+            <th style = {{textAlign: "center"}}>FacingCharges</th>
             <th style = {{textAlign: "center"}}>Action</th>
           </tr>
         </thead>
@@ -46,9 +52,15 @@ const AccountType = () => {
             return(
               <tr key = {item.id}>
                 <td>{item.DummyId}</td>
-                <td>{item.Name}</td>
-                <td>{item.Plots}</td>
+                <td>{item.PlotId}</td>
+                <td>{item.PlotNo}</td>
+                <td>{item.ProjectId}</td>
                 <td>{item.Status}</td>
+                <td>{item.Facing}</td>
+                <td>{item.PlotSize}</td>
+                <td>{item.Amount}</td>
+                <td>{item.MaintainanceCharges}</td>
+                <td>{item.FacingCharges}</td>
                 <td>
                   <Link to = {`/update/${item.id}`}>
                   <button className = "btn btn-edit">Delete</button>
