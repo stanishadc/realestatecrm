@@ -4,14 +4,15 @@ import React from 'react';
 import './App.css';
 
 import Home from './Home';
+
 import AccountType from './AccountType/Home';
 import CommissionEntry from './CommissionEntry/Home';
-/*import CustomerDocuments from './RealEstate/CustomerDocuments';
-import Designations from './RealEstate/Designations';
-import Customer from './RealEstate/Customer';
-import CustomerDocuments from './RealEstate/CustomerDocuments';
-import Designations from './RealEstate/Designations';
-import Dummy from './RealEstate/Dummy';
+import Commissions from './Commissions/Home';
+import Customer from './Customer/Home';
+import CustomerDocuments from './CustomerDocuments/Home';
+import Designations from './Designations/Home';
+
+/*import Dummy from './RealEstate/Dummy';
 import EmployeeDocuments from './RealEstate/EmployeeDocuments';
 import Employees from './Employees';
 import LandDocuments from './LandDocuments';
@@ -26,15 +27,6 @@ import Projects from './Projects';
 import Roles from './Roles';
 import Users from './Users';*/
 
- /*<Route path="/CommissionEntry" exact element={<CommissionEntry/>} />
-          <Route path="/Commissions" exact element={<Commissions/>} />
-          <Route path="/Customer" exact element={<Customer/>} />
-
-          <Route path="/CustomerDocuments" element={<CustomerDocuments/>} />
-          <Route path="/Designations" exact element={<Designations/>} />
-          <Route path="/Dummy" exact element={<Dummy/>} />
-          <Route path="/EmployeeDocuments" exact element={<EmployeeDocuments/>}/>*/
-
 
 function App () {
   return(
@@ -44,7 +36,10 @@ function App () {
           <Route path='/' element={<Home/>}/>
           <Route path='/accounttype' element={<AccountType/>}/>
           <Route path='/commissionentry' element={<CommissionEntry/>}/>
-
+          <Route path='/commissions' element={<Commissions/>}/>
+          <Route path='/customer' element={<Customer/>}/>
+          <Route path='/customerdocuments' element={<CustomerDocuments/>}/>
+          <Route path='/Designations' element={<Designations/>}/>
         </Routes>
       </BrowserRouter>
     </div>

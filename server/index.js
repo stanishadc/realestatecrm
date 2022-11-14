@@ -24,15 +24,52 @@ app.listen(5000, () => {
 
 // GET API (SELECT)
 
-app.get("/api/get", (req,res) => {
-    const sqlGet = "SELECT * FROM Dummy;";
+app.get("/api/get/AccountType", (req,res) => {
+    const sqlGet = "SELECT * FROM AccountType;";
     db.query(sqlGet, (error, result) => {
         res.send(result);
     });
 });
 
+app.get("/api/get/CommissionEntry", (req,res) => {
+    const sqlGet = "SELECT * FROM CommissionEntry;";
+    db.query(sqlGet, (error, result) => {
+        res.send(result);
+    });
+});
+
+app.get("/api/get/Commissions", (req,res) => {
+    const sqlGet = "SELECT * FROM Commissions;";
+    db.query(sqlGet, (error, result) => {
+        res.send(result);
+    });
+});
+
+app.get("/api/get/Customer", (req,res) => {
+    const sqlGet = "SELECT * FROM Customer;";
+    db.query(sqlGet, (error, result) => {
+        res.send(result);
+    });
+});
+
+app.get("/api/get/CustomerDocuments", (req,res) => {
+    const sqlGet = "SELECT * FROM CustomerDocuments;";
+    db.query(sqlGet, (error, result) => {
+        res.send(result);
+    });
+});
+
+
 app.get("/api/get/Designations/", (req,res) => {
     const sqlGet = "SELECT * FROM Designations;";
+    db.query(sqlGet, (error, result) => {
+        res.send(result);
+    });
+});
+
+
+app.get("/api/get/Dummy", (req,res) => {
+    const sqlGet = "SELECT * FROM Dummy;";
     db.query(sqlGet, (error, result) => {
         res.send(result);
     });
