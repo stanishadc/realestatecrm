@@ -1,16 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import React from 'react';
 import './App.css';
 
-import Navbar from './Navbar';
 import Home from './Home';
-import AccountType from './AccountType';
-import CommissionEntry from './CommissionEntry';
-
-/*import Commissions from './RealEstate/Commissions';
-import Customer from './RealEstate/Customer';
-import CustomerDocuments from './RealEstate/CustomerDocuments';
+import AccountType from './AccountType/Home';
+import CommissionEntry from './CommissionEntry/Home';
+/*import CustomerDocuments from './RealEstate/CustomerDocuments';
 import Designations from './RealEstate/Designations';
 import Customer from './RealEstate/Customer';
 import CustomerDocuments from './RealEstate/CustomerDocuments';
@@ -40,20 +36,18 @@ import Users from './Users';*/
           <Route path="/EmployeeDocuments" exact element={<EmployeeDocuments/>}/>*/
 
 
-const App = () => {
-  return (
+function App () {
+  return(
     <div>
       <BrowserRouter>
-        <Navbar />
-        <Switch>
-        <Route path="/" component = {Home} exact />
-        <Route exact path = "/AccountType" component = {AccountType}/>
-        <Route exact path = "/CommissionEntry" component = {CommissionEntry} />
-        </Switch>
+        <Routes>
+          <Route path='/' element={<Home/>}/>
+          <Route path='/accounttype' element={<AccountType/>}/>
+          <Route path='/commissionentry' element={<CommissionEntry/>}/>
+
+        </Routes>
       </BrowserRouter>
-
     </div>
-  );
+  )
 }
-
-export default App;
+export default App

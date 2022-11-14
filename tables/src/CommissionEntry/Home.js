@@ -63,6 +63,9 @@ const AccountType = () => {
           })}
         </tbody>
       </table>
+      <Link to='/commissionentry'>CommissionEntry</Link><br/>
+      <Link to='/'>Home</Link>
+
     </div>
   );
 };
