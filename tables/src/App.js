@@ -1,11 +1,18 @@
-import React from 'react';
-import Navbar from './RealEstate/Navbar';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import React from 'react';
 import './App.css';
-import AccountType from './RealEstate/AccountType';
-import CommissionEntry from './RealEstate/CommissionEntry';
-import Commissions from './RealEstate/Commissions';
-/*import Customer from './RealEstate/Customer';
+
+import Navbar from './Navbar';
+import Home from './Home';
+import AccountType from './AccountType';
+import CommissionEntry from './CommissionEntry';
+
+/*import Commissions from './RealEstate/Commissions';
+import Customer from './RealEstate/Customer';
+import CustomerDocuments from './RealEstate/CustomerDocuments';
+import Designations from './RealEstate/Designations';
+import Customer from './RealEstate/Customer';
 import CustomerDocuments from './RealEstate/CustomerDocuments';
 import Designations from './RealEstate/Designations';
 import Dummy from './RealEstate/Dummy';
@@ -39,11 +46,9 @@ const App = () => {
       <BrowserRouter>
         <Navbar />
         <Switch>
-
-        <Route path = "/AccountypeId" component = {AccountType}/>
+        <Route path="/" component = {Home} />
+        <Route path = "/AccountType" component = {AccountType}/>
         <Route path = "/CommissionEntry" component = {CommissionEntry}/>
-        <Route path = "/Commissions" component = {Commissions}/>  
-
         </Switch>
       </BrowserRouter>
 

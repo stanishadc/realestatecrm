@@ -4,7 +4,7 @@ import "./Home.css";
 import {toast} from "react-toastify";
 import axios from "axios";
 
-const PassbookDocuments = () => {
+const Dummy = () => {
 
   const [data, setData] = useState([]);
 
@@ -67,4 +67,4 @@ const PassbookDocuments = () => {
   );
 };
 
-export default PassbookDocuments;
+export default Dummy;
