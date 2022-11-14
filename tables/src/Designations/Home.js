@@ -4,7 +4,7 @@ import "./Home.css";
 import {toast} from "react-toastify";
 import axios from "axios";
 
-const AccountType = () => {
+const Designations = () => {
 
   const [data, setData] = useState([]);
 
@@ -63,8 +63,11 @@ const AccountType = () => {
           })}
         </tbody>
       </table>
+      <Link to='/designations'>Designations</Link><br/>
+      <Link to='/'>Home</Link>
+
     </div>
   );
 };
 
-export default AccountType;
+export default Designations;

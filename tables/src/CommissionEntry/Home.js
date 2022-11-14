@@ -4,12 +4,12 @@ import "./Home.css";
 import {toast} from "react-toastify";
 import axios from "axios";
 
-const AccountType = () => {
+const CommissionEntry = () => {
 
   const [data, setData] = useState([]);
 
   const loadData = async () => {
-      const response = await axios.get("http://localhost:5000/api/get");
+      const response = await axios.get("http://localhost:5000/api/get/CommissionEntry");
       setData(response.data);
     };
 
@@ -27,17 +27,27 @@ const AccountType = () => {
 
   return (
     <div style = {{marginTop: "55px"}}>
-      <Link to = "/addData"> 
-      <button className="btn btn-add">Add Data</button>
-      </Link>
-     
       <table className='styled-table'>
         <thead>
           <tr>
-            <th style = {{textAlign: "center"}}>DummyID</th>
-            <th style = {{textAlign: "center"}}>Name</th>
-            <th style = {{textAlign: "center"}}>Plots</th>
-            <th style = {{textAlign: "center"}}>Status</th>
+            <th style = {{textAlign: "center"}}>CommissionEntryID</th>
+            <th style = {{textAlign: "center"}}>ReceiptNo</th>
+            <th style = {{textAlign: "center"}}>PassbookNo</th>
+            <th style = {{textAlign: "center"}}>CreatedDate</th>
+            <th style = {{textAlign: "center"}}>UpdatedDate</th>
+
+            <th style = {{textAlign: "center"}}>PaymentDate</th>
+            <th style = {{textAlign: "center"}}>Percentage</th>
+            <th style = {{textAlign: "center"}}>Total</th>
+            <th style = {{textAlign: "center"}}>TDS</th>
+            <th style = {{textAlign: "center"}}>Eligibility</th>
+
+            <th style = {{textAlign: "center"}}>Advance</th>
+            <th style = {{textAlign: "center"}}>Adjustment</th>
+            <th style = {{textAlign: "center"}}>Pending</th>
+            <th style = {{textAlign: "center"}}>Paid</th>
+            <th style = {{textAlign: "center"}}>MarketerName</th>
+            <th style = {{textAlign: "center"}}>ProjectId</th>
             <th style = {{textAlign: "center"}}>Action</th>
           </tr>
         </thead>
@@ -45,13 +55,30 @@ const AccountType = () => {
           {data.map((item,index)=>{
             return(
               <tr key = {item.id}>
-                <td>{item.DummyId}</td>
-                <td>{item.Name}</td>
-                <td>{item.Plots}</td>
-                <td>{item.Status}</td>
+                <td>{item.CommissionEntryId}</td>
+                <td>{item.ReceiptNo}</td>
+                <td>{item.PassbookNo}</td>
+                <td>{item.CreatedDate}</td>
+
+                <td>{item.UpdatedDate}</td>
+                <td>{item.PaymentDate}</td>
+                <td>{item.Percentage}</td>
+
+                <td>{item.Total}</td>
+                <td>{item.TDS}</td>
+                <td>{item.Eligibility}</td>
+
+                <td>{item.Advance}</td>
+                <td>{item.Adjustment}</td>
+                <td>{item.Pending}</td>
+
+                <td>{item.Paid}</td>
+                <td>{item.MarketerName}</td>
+                <td>{item.ProjectId}</td>
+
                 <td>
                   <Link to = {`/update/${item.id}`}>
-                  <button className = "btn btn-edit">Delete</button>
+                  <button className = "btn btn-edit">Edit</button>
                   </Link>
                   <Link to = {`/view/${item.id}`}>
                   <button className = "btn btn-view">View</button>
@@ -63,11 +90,18 @@ const AccountType = () => {
           })}
         </tbody>
       </table>
-      <Link to='/commissionentry'>CommissionEntry</Link><br/>
+      <div style = {{textAlign:"center", width:"100%"}}>
+      <Link to = "/addData"> 
+      <button className="btn btn-add">Add Data</button>
+      </Link>
+      </div>
+     
+      <div>
+      <Link to='/accounttype'>AccountType</Link><br/>
       <Link to='/'>Home</Link>
-
+      </div>
     </div>
   );
 };
 
-export default AccountType;
+export default CommissionEntry;

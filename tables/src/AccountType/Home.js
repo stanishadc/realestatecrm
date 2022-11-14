@@ -9,7 +9,7 @@ const AccountType = () => {
   const [data, setData] = useState([]);
 
   const loadData = async () => {
-      const response = await axios.get("http://localhost:5000/api/get");
+      const response = await axios.get("http://localhost:5000/api/get/AccountType");
       setData(response.data);
     };
 
@@ -27,17 +27,11 @@ const AccountType = () => {
 
   return (
     <div style = {{marginTop: "55px"}}>
-      <Link to = "/addData"> 
-      <button className="btn btn-add">Add Data</button>
-      </Link>
-     
       <table className='styled-table'>
         <thead>
           <tr>
-            <th style = {{textAlign: "center"}}>DummyID</th>
-            <th style = {{textAlign: "center"}}>Name</th>
-            <th style = {{textAlign: "center"}}>Plots</th>
-            <th style = {{textAlign: "center"}}>Status</th>
+            <th style = {{textAlign: "center"}}>AccountTypeID</th>
+            <th style = {{textAlign: "center"}}>AccountName</th>
             <th style = {{textAlign: "center"}}>Action</th>
           </tr>
         </thead>
@@ -45,13 +39,11 @@ const AccountType = () => {
           {data.map((item,index)=>{
             return(
               <tr key = {item.id}>
-                <td>{item.DummyId}</td>
-                <td>{item.Name}</td>
-                <td>{item.Plots}</td>
-                <td>{item.Status}</td>
+                <td>{item.AccountTypeId}</td>
+                <td>{item.AccountName}</td>
                 <td>
                   <Link to = {`/update/${item.id}`}>
-                  <button className = "btn btn-edit">Delete</button>
+                  <button className = "btn btn-edit">Edit</button>
                   </Link>
                   <Link to = {`/view/${item.id}`}>
                   <button className = "btn btn-view">View</button>
@@ -63,10 +55,19 @@ const AccountType = () => {
           })}
         </tbody>
       </table>
+
+      <div style = {{textAlign:"center", width:"100%"}}>
+      <Link to = "/addData"> 
+      <button className="btn btn-add">Add Data</button>
+      </Link>
+      </div>
+     
+      <div>
       <Link to='/accounttype'>AccountType</Link><br/>
       <Link to='/'>Home</Link>
-
+      </div>
     </div>
+
   );
 };
 
