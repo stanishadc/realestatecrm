@@ -4,7 +4,7 @@ import "./Home.css";
 import {toast} from "react-toastify";
 import axios from "axios";
 
-const CommissionEntry = () => {
+const AccountType = () => {
 
   const [data, setData] = useState([]);
 
@@ -67,4 +67,4 @@ const CommissionEntry = () => {
   );
 };
 
-export default CommissionEntry;
+export default AccountType;

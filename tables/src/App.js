@@ -46,9 +46,9 @@ const App = () => {
       <BrowserRouter>
         <Navbar />
         <Switch>
-        <Route path="/" component = {Home} />
-        <Route path = "/AccountType" component = {AccountType}/>
-        <Route path = "/CommissionEntry" component = {CommissionEntry}/>
+        <Route path="/" component = {Home} exact />
+        <Route exact path = "/AccountType" component = {AccountType}/>
+        <Route exact path = "/CommissionEntry" component = {CommissionEntry} />
         </Switch>
       </BrowserRouter>
 
