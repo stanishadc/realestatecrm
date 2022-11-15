@@ -81,7 +81,7 @@ const Customer = () => {
       </div>
      
       <div>
-      <Link to='/accounttype'>AccountType</Link><br/>
+      <Link to='/customer'>Customer</Link><br/>
       <Link to='/'>Home</Link>
       </div>
     </div>

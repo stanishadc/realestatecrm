@@ -35,9 +35,9 @@ const CustomerDocuments = () => {
         <thead>
           <tr>
             <th style = {{textAlign: "center"}}>DummyID</th>
-            <th style = {{textAlign: "center"}}>Name</th>
-            <th style = {{textAlign: "center"}}>Plots</th>
-            <th style = {{textAlign: "center"}}>Status</th>
+            <th style = {{textAlign: "center"}}>CustomerDocumentId</th>
+            <th style = {{textAlign: "center"}}>DocumentName</th>
+            <th style = {{textAlign: "center"}}>CustomerId</th>
             <th style = {{textAlign: "center"}}>Action</th>
           </tr>
         </thead>
@@ -46,9 +46,9 @@ const CustomerDocuments = () => {
             return(
               <tr key = {item.id}>
                 <td>{item.DummyId}</td>
-                <td>{item.Name}</td>
-                <td>{item.Plots}</td>
-                <td>{item.Status}</td>
+                <td>{item.CustomerDocumentId}</td>
+                <td>{item.DocumentName}</td>
+                <td>{item.CustomerId}</td>
                 <td>
                   <Link to = {`/update/${item.id}`}>
                   <button className = "btn btn-edit">Delete</button>

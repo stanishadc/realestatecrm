@@ -45,6 +45,8 @@ app.get("/api/get/Commissions", (req,res) => {
     });
 });
 
+
+
 app.get("/api/get/Customer", (req,res) => {
     const sqlGet = "SELECT * FROM Customer;";
     db.query(sqlGet, (error, result) => {
@@ -75,6 +77,98 @@ app.get("/api/get/Dummy", (req,res) => {
     });
 });
 
+app.get("/api/get/EmployeeDocuments", (req,res) => {
+    const sqlGet = "SELECT * FROM EmployeeDocuments;";
+    db.query(sqlGet, (error, result) => {
+        res.send(result);
+    });
+});
+
+app.get("/api/get/Employees", (req,res) => {
+    const sqlGet = "SELECT * FROM Employees;";
+    db.query(sqlGet, (error, result) => {
+        res.send(result);
+    });
+});
+
+app.get("/api/get/LandDocuments", (req,res) => {
+    const sqlGet = "SELECT * FROM LandDocuments;";
+    db.query(sqlGet, (error, result) => {
+        res.send(result);
+    });
+});
+
+app.get("/api/get/Lands", (req,res) => {
+    const sqlGet = "SELECT * FROM Lands;";
+    db.query(sqlGet, (error, result) => {
+        res.send(result);
+    });
+});
+
+app.get("/api/get/Login", (req,res) => {
+    const sqlGet = "SELECT * FROM Login;";
+    db.query(sqlGet, (error, result) => {
+        res.send(result);
+    });
+});
+
+app.get("/api/get/Passbook", (req,res) => {
+    const sqlGet = "SELECT * FROM Passbook;";
+    db.query(sqlGet, (error, result) => {
+        res.send(result);
+    });
+});
+
+app.get("/api/get/PassbookDocuments", (req,res) => {
+    const sqlGet = "SELECT * FROM PassbookDocuments;";
+    db.query(sqlGet, (error, result) => {
+        res.send(result);
+    });
+});
+
+app.get("/api/get/Payments", (req,res) => {
+    const sqlGet = "SELECT * FROM Payments;";
+    db.query(sqlGet, (error, result) => {
+        res.send(result);
+    });
+});
+
+
+app.get("/api/get/PlotPayments", (req,res) => {
+    const sqlGet = "SELECT * FROM PlotPayments;";
+    db.query(sqlGet, (error, result) => {
+        res.send(result);
+    });
+});
+
+app.get("/api/get/Plots", (req,res) => {
+    const sqlGet = "SELECT * FROM Plots;";
+    db.query(sqlGet, (error, result) => {
+        res.send(result);
+    });
+});
+
+app.get("/api/get/Projects", (req,res) => {
+    const sqlGet = "SELECT * FROM Projects;";
+    db.query(sqlGet, (error, result) => {
+        res.send(result);
+    });
+});
+
+app.get("/api/get/Roles", (req,res) => {
+    const sqlGet = "SELECT * FROM Roles;";
+    db.query(sqlGet, (error, result) => {
+        res.send(result);
+    });
+});
+
+app.get("/api/get/Users", (req,res) => {
+    const sqlGet = "SELECT * FROM Users;";
+    db.query(sqlGet, (error, result) => {
+        res.send(result);
+    });
+});
+
 // POST API (INSERT)
 
 app.post("/api/post", (req,res) => {
@@ -99,53 +193,5 @@ app.put("/api/update/:id", (req,res) => {
             console.log(error);
         }
         res.send(result);
-    });
-});
-
-// DELETE API (BASED ON ID)
-
-app.delete("/api/delete/:id", (req,res) => {
-    const { id } = req.params;
-    const sqlDelete =
-         "DELETE FROM Dummy WHERE DummyId = ?";
-    db.query(sqlDelete, id, (error, result) => {
-       if (error) {
-        console.log(error);
-       } 
-    });
-});
- 
-// GET API ON SELECTED ID
- 
-app.get("/api/view/:id", (req,res) => {
-    const {id} = req.params;
-    const sqlGet = "SELECT * FROM Dummy WHERE id = ?";
-    db.query(sqlGet, id, (error, result) => {
-        if (error) {
-            console.log(error);
-        }
-        res.send(result);
-    });
-});
-
-
-
-//INSERT VALUES API 
-
-/*app.get("/", (req,res)=> {
-    const sqlInsert = "INSERT INTO AccountType (AccountTypeId, AccountName) VALUES (5, 'Savings')";
-    db.query(sqlInsert, (error,result) => {
-        console.log("error", error);
-        console.log("result", result);
-        res.send("Data Inserted")
-    });
-});*/
-
-app.get("/", (req,res)=> {
-    const sqlInsert = "INSERT INTO Dummy (DummyId, Name, Plots, Status) VALUES (17, 'Korukonda', 175, 1)";
-    db.query(sqlInsert, (error,result) => {
-        console.log("error", error);
-        console.log("result", result);
-        res.send("Data Inserted")
     });
 });

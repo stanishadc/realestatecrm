@@ -30,10 +30,11 @@ const Commissions = () => {
       <table className='styled-table'>
         <thead>
           <tr>
-            <th style = {{textAlign: "center"}}>CommissionID</th>
+          <th style = {{textAlign: "center"}}>CommissionID</th>
             <th style = {{textAlign: "center"}}>ReceiptNo</th>
             <th style = {{textAlign: "center"}}>EmployeeId</th>
             <th style = {{textAlign: "center"}}>Commission</th>
+            <th style = {{textAlign: "center"}}>Amount</th>
             <th style = {{textAlign: "center"}}>PassbookNo</th>
             <th style = {{textAlign: "center"}}>CreatedDate</th>
             <th style = {{textAlign: "center"}}>UpdatedDate</th>
@@ -43,8 +44,7 @@ const Commissions = () => {
             <th style = {{textAlign: "center"}}>Advance</th>
             <th style = {{textAlign: "center"}}>Status</th>
             <th style = {{textAlign: "center"}}>PaymentDate</th>
-            <th style = {{textAlign: "center"}}>Percentage</th>
-            <th style = {{textAlign: "center"}}>PaymentMethod</th> 
+            <th style = {{textAlign: "center"}}>PaymentMethod</th>
             <th style = {{textAlign: "center"}}>PaymentDetails</th>
             <th style = {{textAlign: "center"}}>Action</th>
           </tr>
@@ -54,7 +54,7 @@ const Commissions = () => {
             return(
               <tr key = {item.id}>
                 <td>{item.CommissionId}</td>
-                <td>{item.ReceiptNo}</td>
+                <td>{item.ReceitNo}</td>
                 <td>{item.EmployeeId}</td>
                 <td>{item.Commission}</td>
                 <td>{item.Amount}</td>
@@ -90,7 +90,7 @@ const Commissions = () => {
       </div>
      
       <div>
-      <Link to='/accounttype'>AccountType</Link><br/>
+      <Link to='/commissionentry'>CommissionEntry</Link><br/>
       <Link to='/'>Home</Link>
       </div>
     </div>

@@ -9,7 +9,7 @@ const AccountType = () => {
   const [data, setData] = useState([]);
 
   const loadData = async () => {
-      const response = await axios.get("http://localhost:5000/api/get");
+      const response = await axios.get("http://localhost:5000/api/get/Employees");
       setData(response.data);
     };
 
@@ -35,9 +35,21 @@ const AccountType = () => {
         <thead>
           <tr>
             <th style = {{textAlign: "center"}}>DummyID</th>
+            <th style = {{textAlign: "center"}}>EmployeeId</th>
+            <th style = {{textAlign: "center"}}>EmployeeNo</th>
             <th style = {{textAlign: "center"}}>Name</th>
-            <th style = {{textAlign: "center"}}>Plots</th>
+            <th style = {{textAlign: "center"}}>DesginationId</th>
+            <th style = {{textAlign: "center"}}>DateOfJoin</th>
+            <th style = {{textAlign: "center"}}>DateOfLeaving</th>
+            <th style = {{textAlign: "center"}}>Gender</th>
+            <th style = {{textAlign: "center"}}>Mobile</th>
+            <th style = {{textAlign: "center"}}>Email</th>
+            <th style = {{textAlign: "center"}}>AlternateMobile</th>
+            <th style = {{textAlign: "center"}}>Address</th>
             <th style = {{textAlign: "center"}}>Status</th>
+            <th style = {{textAlign: "center"}}>CreatedDate</th>
+            <th style = {{textAlign: "center"}}>UpdatedDate</th>
+            <th style = {{textAlign: "center"}}>ParentEmpId</th>
             <th style = {{textAlign: "center"}}>Action</th>
           </tr>
         </thead>
@@ -46,9 +58,22 @@ const AccountType = () => {
             return(
               <tr key = {item.id}>
                 <td>{item.DummyId}</td>
+                <td>{item.EmployeeId}</td>
+                <td>{item.EmployeeNo}</td>
                 <td>{item.Name}</td>
-                <td>{item.Plots}</td>
+                <td>{item.DesginationId}</td>
+                <td>{item.DateOfJoin}</td>
+                <td>{item.DateOfLeaving}</td>
+                <td>{item.Gender}</td>
+                <td>{item.Mobile}</td>
+                <td>{item.Email}</td>
+                <td>{item.AlternaeMobile}</td>
+                <td>{item.Address}</td>
                 <td>{item.Status}</td>
+                <td>{item.CreatedDate}</td>
+                <td>{item.UpdatedDate}</td>
+                <td>{item.ParentEmpId}</td>
+
                 <td>
                   <Link to = {`/update/${item.id}`}>
                   <button className = "btn btn-edit">Delete</button>
@@ -63,6 +88,8 @@ const AccountType = () => {
           })}
         </tbody>
       </table>
+      <Link to='/employees'>Employees</Link><br/>
+      <Link to='/'>Home</Link>
     </div>
   );
 };

@@ -97,7 +97,7 @@ const CommissionEntry = () => {
       </div>
      
       <div>
-      <Link to='/accounttype'>AccountType</Link><br/>
+      <Link to='/commissionentry'>CommissionEntry</Link><br/>
       <Link to='/'>Home</Link>
       </div>
     </div>
