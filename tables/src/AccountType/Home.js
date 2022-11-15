@@ -55,15 +55,13 @@ const AccountType = () => {
           })}
         </tbody>
       </table>
-
       <div style = {{textAlign:"center", width:"100%"}}>
       <Link to = "/addData"> 
       <button className="btn btn-add">Add Data</button>
       </Link>
       </div>
-     
+
       <div>
-      <Link to='/accounttype'>AccountType</Link><br/>
       <Link to='/'>Home</Link>
       </div>
     </div>

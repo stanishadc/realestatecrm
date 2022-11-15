@@ -28,7 +28,7 @@ const Home = () => {
         <Link to='/plotpayments' className="Link"><li>Plotpayments</li></Link><br/>
         <Link to='/plots' className="Link"><li>Plots</li></Link><br/>
         <Link to='/projects' className="Link"><li>Projects</li></Link><br/>
-        <Link to='/plots' className="Link"><li>Plots</li></Link><br/>
+        <Link to='/roles' className="Link"><li>Roles</li></Link><br/>
         <Link to='/users' className="Link"><li>Users</li></Link><br/>
         </ul>
     </div>

@@ -35,9 +35,11 @@ const Designations = () => {
         <thead>
           <tr>
             <th style = {{textAlign: "center"}}>DummyID</th>
+            <th style = {{textAlign: "center"}}>DesignationId</th>
             <th style = {{textAlign: "center"}}>Name</th>
-            <th style = {{textAlign: "center"}}>Plots</th>
             <th style = {{textAlign: "center"}}>Status</th>
+            <th style = {{textAlign: "center"}}>Commission</th>
+            <th style = {{textAlign: "center"}}>ParentId</th>
             <th style = {{textAlign: "center"}}>Action</th>
           </tr>
         </thead>
@@ -46,9 +48,11 @@ const Designations = () => {
             return(
               <tr key = {item.id}>
                 <td>{item.DummyId}</td>
+                <td>{item.DesignatonId}</td>
                 <td>{item.Name}</td>
-                <td>{item.Plots}</td>
                 <td>{item.Status}</td>
+                <td>{item.Commission}</td>
+                <td>{item.ParentId}</td>
                 <td>
                   <Link to = {`/update/${item.id}`}>
                   <button className = "btn btn-edit">Delete</button>
