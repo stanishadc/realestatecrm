@@ -9,7 +9,7 @@ const AccountType = () => {
   const [data, setData] = useState([]);
 
   const loadData = async () => {
-      const response = await axios.get("http://localhost:5000/api/get");
+      const response = await axios.get("http://localhost:5000/api/get/EmployeeDocuments");
       setData(response.data);
     };
 
@@ -35,9 +35,10 @@ const AccountType = () => {
         <thead>
           <tr>
             <th style = {{textAlign: "center"}}>DummyID</th>
-            <th style = {{textAlign: "center"}}>Name</th>
-            <th style = {{textAlign: "center"}}>Plots</th>
-            <th style = {{textAlign: "center"}}>Status</th>
+            <th style = {{textAlign: "center"}}>EmployeeDocumentId</th>
+            <th style = {{textAlign: "center"}}>DocumentName</th>
+            <th style = {{textAlign: "center"}}>EmployeeId</th>
+            <th style = {{textAlign: "center"}}>DocumentUrl</th>
             <th style = {{textAlign: "center"}}>Action</th>
           </tr>
         </thead>
@@ -46,9 +47,10 @@ const AccountType = () => {
             return(
               <tr key = {item.id}>
                 <td>{item.DummyId}</td>
-                <td>{item.Name}</td>
-                <td>{item.Plots}</td>
-                <td>{item.Status}</td>
+                <td>{item.EmployeeDocumentId}</td>
+                <td>{item.DocumentName}</td>
+                <td>{item.EmployeeId}</td>
+                <td>{item.DocumentUrl}</td>
                 <td>
                   <Link to = {`/update/${item.id}`}>
                   <button className = "btn btn-edit">Delete</button>
@@ -63,6 +65,8 @@ const AccountType = () => {
           })}
         </tbody>
       </table>
+      <Link to='/employeedocuments'>EmployeeDocuments</Link><br/>
+      <Link to='/'>Home</Link>
     </div>
   );
 };

@@ -11,6 +11,15 @@ import Commissions from './Commissions/Home';
 import Customer from './Customer/Home';
 import CustomerDocuments from './CustomerDocuments/Home';
 import Designations from './Designations/Home';
+import Login from './Login/Home';
+import Passbook from './Passbook/Home';
+import PassbookDocuments from './PassbookDocuments/Home';
+import Payments from './Payments/Home';
+import PlotPayments from './PlotPayments/Home';
+import Plots from './Plots/Home';
+import Projects from './Projects/Home';
+import Roles from './Roles/Home';
+import Users from './Users/Home';
 
 /*import Dummy from './RealEstate/Dummy';
 import EmployeeDocuments from './RealEstate/EmployeeDocuments';
@@ -39,7 +48,17 @@ function App () {
           <Route path='/commissions' element={<Commissions/>}/>
           <Route path='/customer' element={<Customer/>}/>
           <Route path='/customerdocuments' element={<CustomerDocuments/>}/>
-          <Route path='/Designations' element={<Designations/>}/>
+          <Route path='/designations' element={<Designations/>}/>
+          <Route path='/login' element={<Login/>}/>
+          <Route path='/passbook' element={<Passbook/>}/>
+          <Route path='/passbookdocuments' element={<PassbookDocuments/>}/>
+          <Route path='/payments' element={<Payments/>}/>
+          <Route path='/plotpayments' element={<PlotPayments/>}/>
+          <Route path='/plots' element={<Plots/>}/>
+          <Route path='/projects' element={<Projects/>}/>
+          <Route path='/roles' element={<Roles/>}/>
+          <Route path='/users' element={<Users/>}/>
+
         </Routes>
       </BrowserRouter>
     </div>
