@@ -1,81 +1,77 @@
 import React from 'react';
-import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-dark bg-dark">
-      <div className="container-fluid">
-        <Link className="navbar-brand" to="/">REAL ESTATE DATABASE</Link>
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            
-            <li className="nav-item">
-              <Link className="nav-link" to="/AccountType">AccountType</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/CommisssionEntry">CommissionEntry</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/Commisssions">Commissions</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/Customer">Customer</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/CustomerDocuments">CustomerDocuments</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/Designations">Designations</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/Dummy">Dummy</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/EmployeeDocuments">EmployeeDocuments</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/Employees">Employees</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/LandDocuments">LandDocuments</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/Lands">Lands</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/Login">Login</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/Passbook">Passbook</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/PassbookDocuments">PassbookDocuments</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/Payments">Payments</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/PlotDocuments">PlotDocuments</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/Plots">Plots</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/Projects">Projects</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/Roles">Roles</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/Users">Users</Link>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">RealEstate Database</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/AccountType">AccountType</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/CommissionEntry">CommissionEntry</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/Commissions">Commissions</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/Customer">Customer</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/CustomerDocuments">CustomerDocuments</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/Designations">Designations</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/Dummy">Dummy</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/EmployeeDocuments">EmployeeDocuments</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/Employees">Employees</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/LandDocuments">LandDocuments</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/Lands">Lands</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/Login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/Passbook">Passbook</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/PassbookDocuments">PassbookDocuments</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/Payments">Payments</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/PlotPayments">PlotPayments</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/Plots">Plots</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/Projects">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/Roles">Roles</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/Users">Users</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
   )
 }
 

@@ -4,12 +4,12 @@ import "./Home.css";
 import {toast} from "react-toastify";
 import axios from "axios";
 
-const AccountType = () => {
+const Home = () => {
 
   const [data, setData] = useState([]);
 
   const loadData = async () => {
-      const response = await axios.get("http://localhost:5000/api/get/AccountType");
+      const response = await axios.get("http://localhost:5001/api/get/AccountType");
       setData(response.data);
     };
 
@@ -17,9 +17,9 @@ const AccountType = () => {
     loadData();
   }, []);
 
-  const deleteData = (id) => {
-    if(window.confirm("Are you sure that you wanted to delete Data")) {
-      axios.delete(`http://localhost:5000/api/delete/${id}`);
+  const deleteData = (AccountTypeId) => {
+    if(window.confirm("Are you sure that you wanted to delete Data ?")) {
+      axios.delete(`http://localhost:5001/api/delete/${AccountTypeId}`);
       toast.success("Data Deleted Successfully");
       setTimeout(() => loadData(), 500);
     }
@@ -30,7 +30,7 @@ const AccountType = () => {
       <table className='styled-table'>
         <thead>
           <tr>
-            <th style = {{textAlign: "center"}}>AccountTypeID</th>
+            <th style = {{textAlign: "center"}}>AccountTypeId</th>
             <th style = {{textAlign: "center"}}>AccountName</th>
             <th style = {{textAlign: "center"}}>Action</th>
           </tr>
@@ -38,35 +38,28 @@ const AccountType = () => {
         <tbody>
           {data.map((item,index)=>{
             return(
-              <tr key = {item.id}>
+              <tr key = {item.AccountTypeId}>
                 <td>{item.AccountTypeId}</td>
                 <td>{item.AccountName}</td>
                 <td>
-                  <Link to = {`/update/${item.id}`}>
+                  <Link to = {`/update/${item.AccountTypeId}`}>
                   <button className = "btn btn-edit">Edit</button>
                   </Link>
-                  <Link to = {`/view/${item.id}`}>
+                  <Link to = {`/view/${item.AccountTypeId}`}>
                   <button className = "btn btn-view">View</button>
                   </Link>
-                  <button className = "btn btn-delete" onClick={() => deleteData(item.id)}>Delete</button>
+                  <button className = "btn btn-delete" onClick={() => deleteData(item.AccountTypeId)}>Delete</button>
                 </td>
               </tr>
             );
           })}
         </tbody>
       </table>
-      <div style = {{textAlign:"center", width:"100%"}}>
       <Link to = "/addData"> 
       <button className="btn btn-add">Add Data</button>
       </Link>
-      </div>
-
-      <div>
-      <Link to='/'>Home</Link>
-      </div>
     </div>
-
   );
 };
 
-export default AccountType;
+export default Home;

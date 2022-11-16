@@ -4,12 +4,12 @@ import "./Home.css";
 import {toast} from "react-toastify";
 import axios from "axios";
 
-const Login = () => {
+const LoginHome = () => {
 
   const [data, setData] = useState([]);
 
   const loadData = async () => {
-      const response = await axios.get("http://localhost:5000/api/get");
+      const response = await axios.get("http://localhost:5001/api/get/Login");
       setData(response.data);
     };
 
@@ -17,9 +17,9 @@ const Login = () => {
     loadData();
   }, []);
 
-  const deleteData = (id) => {
-    if(window.confirm("Are you sure that you wanted to delete Data")) {
-      axios.delete(`http://localhost:5000/api/delete/${id}`);
+  const deleteData = (LoginId) => {
+    if(window.confirm("Are you sure that you wanted to delete Data ?")) {
+      axios.delete(`http://localhost:5001/api/delete/${LoginId}`);
       toast.success("Data Deleted Successfully");
       setTimeout(() => loadData(), 500);
     }
@@ -27,14 +27,9 @@ const Login = () => {
 
   return (
     <div style = {{marginTop: "55px"}}>
-      <Link to = "/addData"> 
-      <button className="btn btn-add">Add Data</button>
-      </Link>
-     
       <table className='styled-table'>
         <thead>
           <tr>
-            <th style = {{textAlign: "center"}}>DummyID</th>
             <th style = {{textAlign: "center"}}>LoginId</th>
             <th style = {{textAlign: "center"}}>Status</th>
             <th style = {{textAlign: "center"}}>Action</th>
@@ -43,29 +38,28 @@ const Login = () => {
         <tbody>
           {data.map((item,index)=>{
             return(
-              <tr key = {item.id}>
-                <td>{item.DummyId}</td>
-                <td>{item.Name}</td>
+              <tr key = {item.LoginId}>
+                <td>{item.LoginId}</td>
                 <td>{item.Status}</td>
                 <td>
-                  <Link to = {`/update/${item.id}`}>
-                  <button className = "btn btn-edit">Delete</button>
+                  <Link to = {`/update/${item.LoginId}`}>
+                  <button className = "btn btn-edit">Edit</button>
                   </Link>
-                  <Link to = {`/view/${item.id}`}>
+                  <Link to = {`/view/${item.LoginId}`}>
                   <button className = "btn btn-view">View</button>
                   </Link>
-                  <button className = "btn btn-delete" onClick={() => deleteData(item.id)}>Delete</button>
+                  <button className = "btn btn-delete" onClick={() => deleteData(item.LoginId)}>Delete</button>
                 </td>
               </tr>
             );
           })}
         </tbody>
       </table>
-      <Link to='/login'>Login</Link><br/>
-      <Link to='/'>Home</Link>
-
+      <Link to = "/addData"> 
+      <button className="btn btn-add">Add Data</button>
+      </Link>
     </div>
   );
 };
 
-export default Login;
+export default LoginHome;
