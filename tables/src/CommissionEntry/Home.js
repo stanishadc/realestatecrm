@@ -94,10 +94,8 @@ const CommissionEntry = () => {
       <Link to = "/addData"> 
       <button className="btn btn-add">Add Data</button>
       </Link>
-      </div>
-     
+      </div>    
       <div>
-      <Link to='/accounttype'>AccountType</Link><br/>
       <Link to='/'>Home</Link>
       </div>
     </div>

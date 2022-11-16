@@ -4,7 +4,7 @@ import "./Home.css";
 import {toast} from "react-toastify";
 import axios from "axios";
 
-const Customer = () => {
+const AccountType = () => {
 
   const [data, setData] = useState([]);
 
@@ -34,11 +34,11 @@ const Customer = () => {
             <th style = {{textAlign: "center"}}>Name</th>
             <th style = {{textAlign: "center"}}>CustomerNo</th>
             <th style = {{textAlign: "center"}}>Email</th>
+            <th style = {{textAlign: "center"}}>Mobile</th>
             <th style = {{textAlign: "center"}}>AlternateMobile</th>
             <th style = {{textAlign: "center"}}>Address</th>
             <th style = {{textAlign: "center"}}>CreatedDate</th>
             <th style = {{textAlign: "center"}}>UpdatedDate</th>
-
             <th style = {{textAlign: "center"}}>DateOfJoin</th>
             <th style = {{textAlign: "center"}}>Status</th>
             <th style = {{textAlign: "center"}}>Action</th>
@@ -50,6 +50,7 @@ const Customer = () => {
               <tr key = {item.id}>
                 <td>{item.CustomerId}</td>
                 <td>{item.Name}</td>
+                <td>{item.CustomerNo}</td>
                 <td>{item.Email}</td>
                 <td>{item.Mobile}</td>
                 <td>{item.AlternateMobile}</td>
@@ -58,7 +59,6 @@ const Customer = () => {
                 <td>{item.UpdatedDate}</td>
                 <td>{item.DateOfJoin}</td>
                 <td>{item.Status}</td>
-
                 <td>
                   <Link to = {`/update/${item.id}`}>
                   <button className = "btn btn-edit">Edit</button>
@@ -73,15 +73,13 @@ const Customer = () => {
           })}
         </tbody>
       </table>
-
       <div style = {{textAlign:"center", width:"100%"}}>
       <Link to = "/addData"> 
       <button className="btn btn-add">Add Data</button>
       </Link>
       </div>
-     
+
       <div>
-      <Link to='/accounttype'>AccountType</Link><br/>
       <Link to='/'>Home</Link>
       </div>
     </div>
@@ -89,4 +87,4 @@ const Customer = () => {
   );
 };
 
-export default Customer;
+export default AccountType;

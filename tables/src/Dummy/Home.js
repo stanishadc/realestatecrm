@@ -4,12 +4,12 @@ import "./Home.css";
 import {toast} from "react-toastify";
 import axios from "axios";
 
-const AccountType = () => {
+const Dummy = () => {
 
   const [data, setData] = useState([]);
 
   const loadData = async () => {
-      const response = await axios.get("http://localhost:5000/api/get");
+      const response = await axios.get("http://localhost:5000/api/get/Dummy");
       setData(response.data);
     };
 
@@ -27,10 +27,6 @@ const AccountType = () => {
 
   return (
     <div style = {{marginTop: "55px"}}>
-      <Link to = "/addData"> 
-      <button className="btn btn-add">Add Data</button>
-      </Link>
-     
       <table className='styled-table'>
         <thead>
           <tr>
@@ -62,9 +58,17 @@ const AccountType = () => {
             );
           })}
         </tbody>
-      </table>
+        </table>
+      <div style = {{textAlign:"center", width:"100%"}}>
+      <Link to = "/addData"> 
+      <button className="btn btn-add">Add Data</button>
+      </Link>
+      </div>    
+      <div>
+      <Link to='/'>Home</Link>
+      </div>
     </div>
   );
 };
 
-export default AccountType;
+export default Dummy;

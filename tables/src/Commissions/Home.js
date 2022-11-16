@@ -9,7 +9,7 @@ const Commissions = () => {
   const [data, setData] = useState([]);
 
   const loadData = async () => {
-      const response = await axios.get("http://localhost:5000/api/get/Commissions");
+      const response = await axios.get("http://localhost:5000/api/get/Commission");
       setData(response.data);
     };
 
@@ -34,6 +34,7 @@ const Commissions = () => {
             <th style = {{textAlign: "center"}}>ReceiptNo</th>
             <th style = {{textAlign: "center"}}>EmployeeId</th>
             <th style = {{textAlign: "center"}}>Commission</th>
+            <th style = {{textAlign: "center"}}>Amount</th>
             <th style = {{textAlign: "center"}}>PassbookNo</th>
             <th style = {{textAlign: "center"}}>CreatedDate</th>
             <th style = {{textAlign: "center"}}>UpdatedDate</th>
@@ -43,8 +44,7 @@ const Commissions = () => {
             <th style = {{textAlign: "center"}}>Advance</th>
             <th style = {{textAlign: "center"}}>Status</th>
             <th style = {{textAlign: "center"}}>PaymentDate</th>
-            <th style = {{textAlign: "center"}}>Percentage</th>
-            <th style = {{textAlign: "center"}}>PaymentMethod</th> 
+            <th style = {{textAlign: "center"}}>PaymentMethod</th>
             <th style = {{textAlign: "center"}}>PaymentDetails</th>
             <th style = {{textAlign: "center"}}>Action</th>
           </tr>
@@ -54,11 +54,12 @@ const Commissions = () => {
             return(
               <tr key = {item.id}>
                 <td>{item.CommissionId}</td>
-                <td>{item.ReceiptNo}</td>
+                <td>{item.ReceitNo}</td>
                 <td>{item.EmployeeId}</td>
                 <td>{item.Commission}</td>
                 <td>{item.Amount}</td>
                 <td>{item.PassbookNo}</td>
+              
                 <td>{item.CreatedDate}</td>
                 <td>{item.UpdatedDate}</td>
                 <td>{item.TDS}</td>
@@ -87,10 +88,8 @@ const Commissions = () => {
       <Link to = "/addData"> 
       <button className="btn btn-add">Add Data</button>
       </Link>
-      </div>
-     
+      </div>    
       <div>
-      <Link to='/accounttype'>AccountType</Link><br/>
       <Link to='/'>Home</Link>
       </div>
     </div>
