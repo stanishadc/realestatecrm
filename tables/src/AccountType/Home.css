@@ -36,7 +36,6 @@
 
 .btn {
     border:none;
-    color:black;
     font-size: 25px;
     text-align: center;
     text-decoration: none;
@@ -51,11 +50,10 @@
     height:50px;
     width:25%;
     background-color: green;
-    font-size: 20px;
 }
 
 .btn-edit {
-    background-color: #088cba;
+    background-color: black;
 }
 
 .btn-delete {
@@ -64,4 +62,23 @@
 
 .btn-view {
     background-color: yellowgreen;
+}
+
+
+.add {
+    border-radius: 5px;
+    margin: 3px 3px;
+    padding: 5px 8px;
+    color: gainsboro;
+    font-size: 25px;
+    border-radius: 5px;
+    background-color: green;
+    border: none;
+}
+
+.home {
+    color: gainsboro;
+    font-size: 15px;
+    border-radius: 5px;
+    background-color: black;
 }

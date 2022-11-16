@@ -47,7 +47,6 @@
     padding: 5px 8px;
 }
 
-
 .btn-add {
     height:50px;
     width:25%;
@@ -55,7 +54,7 @@
 }
 
 .btn-edit {
-    background-color: #088cba;
+    background-color: black;
 }
 
 .btn-delete {
@@ -67,3 +66,20 @@
 }
 
 
+.add {
+    border-radius: 5px;
+    margin: 3px 3px;
+    padding: 5px 8px;
+    color: gainsboro;
+    font-size: 25px;
+    border-radius: 5px;
+    background-color: green;
+    border: none;
+}
+
+.home {
+    color: gainsboro;
+    font-size: 15px;
+    border-radius: 5px;
+    background-color: black;
+}

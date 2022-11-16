@@ -4,12 +4,12 @@ import "./Home.css";
 import {toast} from "react-toastify";
 import axios from "axios";
 
-const Commissions = () => {
+const CommissionsHome = () => {
 
   const [data, setData] = useState([]);
 
   const loadData = async () => {
-      const response = await axios.get("http://localhost:5000/api/get/Commission");
+      const response = await axios.get("http://localhost:5001/api/get/Commissions");
       setData(response.data);
     };
 
@@ -17,9 +17,9 @@ const Commissions = () => {
     loadData();
   }, []);
 
-  const deleteData = (id) => {
-    if(window.confirm("Are you sure that you wanted to delete Data")) {
-      axios.delete(`http://localhost:5000/api/delete/${id}`);
+  const deleteData = (CommissionId) => {
+    if(window.confirm("Are you sure that you wanted to delete Data ?")) {
+      axios.delete(`http://localhost:5001/api/delete/${CommissionId}`);
       toast.success("Data Deleted Successfully");
       setTimeout(() => loadData(), 500);
     }
@@ -30,7 +30,7 @@ const Commissions = () => {
       <table className='styled-table'>
         <thead>
           <tr>
-            <th style = {{textAlign: "center"}}>CommissionID</th>
+            <th style = {{textAlign: "center"}}>CommissionId</th>
             <th style = {{textAlign: "center"}}>ReceiptNo</th>
             <th style = {{textAlign: "center"}}>EmployeeId</th>
             <th style = {{textAlign: "center"}}>Commission</th>
@@ -52,14 +52,13 @@ const Commissions = () => {
         <tbody>
           {data.map((item,index)=>{
             return(
-              <tr key = {item.id}>
+              <tr key = {item.CommissionId}>
                 <td>{item.CommissionId}</td>
-                <td>{item.ReceitNo}</td>
+                <td>{item.ReceiptNo}</td>
                 <td>{item.EmployeeId}</td>
                 <td>{item.Commission}</td>
                 <td>{item.Amount}</td>
                 <td>{item.PassbookNo}</td>
-              
                 <td>{item.CreatedDate}</td>
                 <td>{item.UpdatedDate}</td>
                 <td>{item.TDS}</td>
@@ -71,29 +70,30 @@ const Commissions = () => {
                 <td>{item.PaymentMethod}</td>
                 <td>{item.PaymentDetails}</td>
                 <td>
-                  <Link to = {`/update/${item.id}`}>
+                  <Link to = {`/update/${item.CommissionId}`}>
                   <button className = "btn btn-edit">Edit</button>
                   </Link>
-                  <Link to = {`/view/${item.id}`}>
+                  <Link to = {`/view/${item.CommissionId}`}>
                   <button className = "btn btn-view">View</button>
                   </Link>
-                  <button className = "btn btn-delete" onClick={() => deleteData(item.id)}>Delete</button>
+                  <button className = "btn btn-delete" onClick={() => deleteData(item.CommissionId)}>Delete</button>
                 </td>
               </tr>
             );
           })}
         </tbody>
       </table>
-      <div style = {{textAlign:"center", width:"100%"}}>
       <Link to = "/addData"> 
-      <button className="btn btn-add">Add Data</button>
+      <button className="add">Add Data</button>
       </Link>
-      </div>    
       <div>
-      <Link to='/'>Home</Link>
+      <Link to = "/"> 
+      <button className="home">Home</button>
+      </Link>
       </div>
+      
     </div>
   );
 };
 
-export default Commissions;
+export default CommissionsHome

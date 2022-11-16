@@ -3,20 +3,31 @@ import 'react-toastify/dist/ReactToastify.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import './App.css';
 
-import Home from "./AccountType/Home";
-import AddEdit from './AccountType/Edit';
-import View from './AccountType/View';
+import Navbar from "./Navbar";
+import Home from "./Home"
+
+import AccountTypeHome from "./AccountType/Home";
+import AccountTypeEdit from './AccountType/Edit';
+import AccountTypeView from './AccountType/View';
+
+import CommissionEntryHome from "./CommissionEntry/Home";
+import CommissionsHome from "./Commissions/Home";
+
 
 function App() {
   return (
     <BrowserRouter>
+    <Navbar/>
     <div className="App">
         <ToastContainer position="top-center"/>
       <Routes>
         <Route path = "/" element ={<Home/>}/>
-        <Route path = "/addData" element = {<AddEdit/>}/>
-        <Route path = "/update/:id" element = {<AddEdit/>}/>
-        <Route path = "/view/:id" element = {<View/>}/>
+        <Route path = "/AccountType" element ={<AccountTypeHome/>}/>
+        <Route path = "/addData" element = {<AccountTypeEdit/>}/>
+        <Route path = "/update/:AccountType" element = {<AccountTypeEdit/>}/>
+        <Route path = "/view/:AccountType" element = {<AccountTypeView/>}/>
+        <Route path = "CommissionEntry" element = {<CommissionEntryHome/>}/>
+        <Route path = "Commissions" element = {<CommissionsHome/>}/>
       </Routes>
     </div>
     </BrowserRouter>

@@ -70,9 +70,8 @@ const AccountTypeEdit = () => {
      >
       <label htmlFor="AccountName">AccountName</label>
       <input type = "text" id = "AccountName" name = "AccountName" placeholder="Enter Name" value = {AccountName || ""} onChange = {handleInputChange} />
-      <Link to = "/AccountType">
+      
       <input className = "save" type = "submit" value = {AccountTypeId ? "Update" : "Save"}/>
-      </Link>
       <Link to = "/AccountType">
       <button className = "close" value = "Close">Close</button>
       </Link>

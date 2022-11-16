@@ -4,12 +4,12 @@ import "./Home.css";
 import {toast} from "react-toastify";
 import axios from "axios";
 
-const Home = () => {
+const AccountTypeHome = () => {
 
   const [data, setData] = useState([]);
 
   const loadData = async () => {
-      const response = await axios.get("http://localhost:5001/api/get");
+      const response = await axios.get("http://localhost:5001/api/get/AccountType");
       setData(response.data);
     };
 
@@ -56,10 +56,16 @@ const Home = () => {
         </tbody>
       </table>
       <Link to = "/addData"> 
-      <button className="btn btn-add">Add Data</button>
+      <button className="add">Add Data</button>
       </Link>
+      <div>
+      <Link to = "/"> 
+      <button className="home">Home</button>
+      </Link>
+      </div>
+      
     </div>
   );
 };
 
-export default Home;
+export default AccountTypeHome
