@@ -4,14 +4,11 @@ import {Link} from "react-router-dom";
 import { Alert } from "bootstrap";
 
 const initialFieldValues = {
-  userId: 0,
-  username: "",
-  password: "",
+  loginId: 0,
   status: "",
-  roleId:"",
 };
-export default function Users(props) {
-  const [userList, setUserList] = useState([]);
+export default function Login(props) {
+  const [loginList, setLoginList] = useState([]);
   const [recordForEdit, setRecordForEdit] = useState(null);
   const [values, setValues] = useState(initialFieldValues);
   const [errors, setErrors] = useState({});
@@ -29,10 +26,7 @@ export default function Users(props) {
   };
   const validate = () => {
     let temp = {};
-    temp.username = values.username === "" ? false : true;
-    temp.password = values.Password === "" ? false : true;
-    temp.status = values.status === "" ? false : true;
-    temp.roleId = values.roleId === "" ? false : true;
+    temp.Status = values.Status === "" ? false : true;
     setErrors(temp);
     return Object.values(temp).every((x) => x === true);
   };
@@ -40,17 +34,14 @@ export default function Users(props) {
     e.preventDefault();
     if (validate()) {
       const formData = new FormData();
-      formData.append("userId", values.userId);
-      formData.append("username", values.username);
-      formData.append("password", values.password);
+      formData.append("loginId", values.loginId);
       formData.append("status", values.status);
-      formData.append("roleId", values.roleId);
       console.log(values);
       addOrEdit(formData, resetForm);
     }
   };
   const applicationAPI = (
-    url = "http://localhost:5001/api/get/Users"
+    url = "http://localhost:5001/api/get/Login"
   ) => {
     return {
       fetchAll: () => axios.get(url),
@@ -61,21 +52,21 @@ export default function Users(props) {
     };
   };
   const addOrEdit = (formData, onSuccess) => {
-    if (formData.get("userId") === "0") {
+    if (formData.get("loginId") === "0") {
       applicationAPI()
         .create(formData)
         .then((res) => {
-          Alert("New Users Added");
+          Alert("New Login Added");
           resetForm();
-          refreshUserList();
+          refreshLoginList();
         });
     } else {
       applicationAPI()
-        .update(formData.get("userId"), formData)
+        .update(formData.get("loginId"), formData)
         .then((res) => {
-          Alert("Users Details Updated");
+          Alert("login Details Updated");
           resetForm();
-          refreshUserList();
+          refreshLoginList();
         });
     }
   };
@@ -87,63 +78,41 @@ export default function Users(props) {
       applicationAPI()
         .delete(id)
         .then((res) => {
-          Alert("Users Type Deleted Succesfully");
-          refreshUserList();
+          Alert("Login Deleted Succesfully");
+          refreshLoginList();
         })
-        .catch((err) => Alert("Users Deleted Failed"));
+        .catch((err) => Alert("Login Deleted Failed"));
   };
   const resetForm = () => {
     setValues(initialFieldValues);
   };
-  function refreshUserList() {
+  function refreshLoginList() {
     applicationAPI()
       .fetchAll()
-      .then((res) => setUserList(res.data))
+      .then((res) => setLoginList(res.data))
       .catch((err) => console.log(err));
   }
   useEffect(() => {
-    refreshUserList();
+    refreshLoginList();
   }, []);
   const applyErrorClass = (field) =>
     field in errors && errors[field] === false ? " form-control-danger" : "";
   return (
     <div className="container-fluid">
-      
       <div className="row main-content">
         <div className="col-sm-3 col-xs-6 sidebar pl-0">
-        
         </div>
         <div className="col-sm-9 col-xs-12 content pt-3 pl-0">
           <form onSubmit={handleSubmit} autoComplete="off" noValidate>
             <span className="text-secondary">
-              Dashboard <i className="fa fa-angle-right" />  Users Type
+              Dashboard <i className="fa fa-angle-right" /> Login 
             </span>
             <div className="row mt-3">
               <div className="col-sm-12">
                 <div className="mt-4 mb-3 p-3 button-container bg-white border shadow-sm">
-                  <h6 className="mb-3">Users Details</h6>
+                  <h6 className="mb-3">Login Details</h6>
                   <div className="form-group row floating-label">
                     <div className="col-sm-4 col-12">
-                      <input
-                        className={"form-control" + applyErrorClass("username")}
-                        name="username"
-                        type="text"
-                        value={values.username}
-                        onChange={handleInputChange}
-                      />
-                      <label htmlFor="name">UserName</label>
-                    </div>
-                    <div className="col-sm-4">
-                      <input
-                        className={"form-control" + applyErrorClass("password")}
-                        name="password"
-                        type="text"
-                        value={values.password}
-                        onChange={handleInputChange}
-                      />
-                      <label htmlFor="password">Password</label>
-                    </div>
-                    <div className="col-sm-4">
                       <input
                         className={"form-control" + applyErrorClass("status")}
                         name="status"
@@ -153,16 +122,7 @@ export default function Users(props) {
                       />
                       <label htmlFor="status">Status</label>
                     </div>
-                    <div className="col-sm-4">
-                      <input
-                        className={"form-control" + applyErrorClass("roleId")}
-                        name="roleId"
-                        type="number"
-                        value={values.roleId}
-                        onChange={handleInputChange}
-                      />
-                      <label htmlFor="roleId">RoleId</label>
-                    </div>
+                    
                     <div className="col-sm-4">
                       <button type="submit" className="btn btn-primary mr-3">
                         Submit
@@ -183,29 +143,23 @@ export default function Users(props) {
           <div className="table-responsive product-list">
             <table
               className="table table-bordered table-striped mt-3"
-              id="userList"
+              id="businessTypeList"
             >
               <thead>
                 <tr>
-                  <th>UserName</th>
-                  <th>Password</th>
                   <th>Status</th>
-                  <th>RoleId</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody>
-                {userList.map((use) => (
-                  <tr key={use.userId}>
-                    <td>{use.username}</td>
-                    <td>{use.password}</td>
-                    <td>{use.status}</td>
-                    <td>{use.roleId}</td>
+                {loginList.map((log) => (
+                  <tr key={log.loginId}>
+                    <td>{log.status}</td>
                     <td>
                       <button
                         className="btn btn-success btn-sm mr-2"
                         onClick={() => {
-                          showEditDetails(use);
+                          showEditDetails(log);
                         }}
                       >
                         <i className="fas fa-pencil-alt" />
@@ -213,7 +167,7 @@ export default function Users(props) {
                       <button
                         className="btn btn-danger btn-sm"
                         onClick={(e) =>
-                          onDelete(e, parseInt(use.userId))
+                          onDelete(e, parseInt(log.loginId))
                         }
                       >
                         <i className="fas fa-trash-alt" />

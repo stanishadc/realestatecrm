@@ -365,9 +365,9 @@ app.put("/api/update/:RoleId", (req,res) => {
 
 app.put("/api/update/:UserId", (req,res) => {
     const { UserId } = req.params;
-    const { Name, } = req.body;
-    const sqlUpdate = "UPDATE Roles SET Name = ? WHERE RoleId = ?";
-    db.query(sqlUpdate, [Name,RoleId], (error, result) => {
+    const { UserName, Password, Status, RoleId } = req.body;
+    const sqlUpdate = "UPDATE Users SET UserName = ?, Password = ?, Status = ?, RoleId = ? WHERE UserId = ?";
+    db.query(sqlUpdate, [UserName, Password, Status, RoleId, UserId], (error, result) => {
         if (error) {
             console.log(error);
         }

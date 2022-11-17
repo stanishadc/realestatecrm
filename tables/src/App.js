@@ -1,29 +1,32 @@
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import React from 'react';
 import './App.css';
 
-import Home from "./AccountType/Home";
-import Edit from './AccountType/Edit';
-import View from './AccountType/View';
+import Home from './Home';
+import AccountType from './AccountType/Home';
+import Login from './Login/Home';
+import Roles from './Roles/Home';
+import Users from './Users/Home';
+import Lands from './Lands/Home';
 
-function App() {
-  return (
-    <BrowserRouter>
-    <div className="App">
-        <ToastContainer position="top-center"/>
-      <Routes>
-        <Route path = "/" element ={<Home/>}/>
-        <Route path = "/addData" element = {<Edit/>}/>
-        <Route path = "/update/:id" element = {<Edit/>}/>
-        <Route path = "/view/:id" element = {<View/>}/>
+function App () {
+  return(
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Home/>}/>
+          <Route path='/accounttype' element={<AccountType/>}/>
+          <Route path='/login' element={<Login/>}/>
+          <Route path='/roles' element={<Roles/>}/>
+          <Route path='/users' element={<Users/>}/>
+          <Route path='/lands' element={<Lands/>}/>
+          
 
 
-        
-      </Routes>
+        </Routes>
+      </BrowserRouter>
     </div>
-    </BrowserRouter>
-  );
+  )
 }
-
-export default App;
+export default App
