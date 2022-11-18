@@ -4,13 +4,25 @@ import {Link} from "react-router-dom";
 import { Alert } from "bootstrap";
 
 const initialFieldValues = {
-  employeeDocumentId: 0,
-  documentName: "",
-  employeeId: "",
-  documentUrl:"",
+  employeeId: 0,
+  employeeNo:"",
+  name: "",
+  designationId: "",
+  dateOfJoin: new Date().toLocaleString(),
+  dateOfLeaving: new Date().toLocaleString(),
+  gender:"",
+  mobile:"",
+  email:"",
+  alternateMobile:"",
+  address:"",
+  status:"",
+  createdDate: new Date().toLocaleString(),
+  updatedDate: new Date().toLocaleString(),
+  parentEmpId:"",
+
 };
-export default function EmployeeDocuments(props) {
-  const [employeeDocumentList, setEmployeeDocumentList] = useState([]);
+export default function Employees(props) {
+  const [employeeList, setEmployeeList] = useState([]);
   const [recordForEdit, setRecordForEdit] = useState(null);
   const [values, setValues] = useState(initialFieldValues);
   const [errors, setErrors] = useState({});
@@ -28,9 +40,21 @@ export default function EmployeeDocuments(props) {
   };
   const validate = () => {
     let temp = {};
-    temp.documentName = values.documentName === "" ? false : true;
-    temp.employeeId = values.employeeId === "" ? false : true;
-    temp.documentUrl = values.documentUrl === "" ? false : true;
+    temp.employeeNo = values.employeeNo === "" ? false : true;
+    temp.name = values.name === "" ? false : true;
+    temp.designationId = values.designationId === "" ? false : true;
+    temp.dateOfJoin = values.dateOfJoin === "" ? false : true;
+    temp.dateOfLeaving = values.dateOfLeaving === "" ? false : true;
+    temp.gender = values.gender === "" ? false : true;
+    temp.mobile = values.mobile === "" ? false : true;
+    temp.email = values.email === "" ? false : true;
+    temp.alternateMobile = values.alternateMobile === "" ? false : true;
+    temp.address = values.address === "" ? false : true;
+    temp.status = values.status === "" ? false : true;
+    temp.createdDate = values.createdDate === "" ? false : true;
+    temp.updatedDate = values.updatedDate === "" ? false : true;
+    temp.parentEmpId = values.parentEmpId === "" ? false : true;
+
     setErrors(temp);
     return Object.values(temp).every((x) => x === true);
   };
@@ -38,16 +62,27 @@ export default function EmployeeDocuments(props) {
     e.preventDefault();
     if (validate()) {
       const formData = new FormData();
-      formData.append("employeeDocumentId", values.employeeDocumentId);
-      formData.append("documentName", values.documentName);
       formData.append("employeeId", values.employeeId);
-      formData.append("documentUrl", values.documentUrl)
+      formData.append("employeeNo", values.employeeNo);
+      formData.append("name", values.name);
+      formData.append("designationId", values.designationId);
+      formData.append("dateOfJoin", values.dateOfJoin);
+      formData.append("dateOfLeaving", values.dateOfLeaving);
+      formData.append("gender", values.gender);
+      formData.append("mobile", values.mobile);
+      formData.append("email", values.email);
+      formData.append("alternateMobile", values.alternateMobile);
+      formData.append("address", values.address);
+      formData.append("status", values.status);
+      formData.append("createdDate", values.createdDate);
+      formData.append("updatedDate", values.updatedDate);
+      formData.append("parentEmpId", values.parentEmpId);
       console.log(values);
       addOrEdit(formData, resetForm);
     }
   };
   const applicationAPI = (
-    url = "http://localhost:5001/api/get/EmployeeDocuments"
+    url = "http://localhost:5001/api/get//Employees"
   ) => {
     return {
       fetchAll: () => axios.get(url),
@@ -58,21 +93,21 @@ export default function EmployeeDocuments(props) {
     };
   };
   const addOrEdit = (formData, onSuccess) => {
-    if (formData.get("employeeDocumentId") === "0") {
+    if (formData.get("employeeId") === "0") {
       applicationAPI()
         .create(formData)
         .then((res) => {
-          Alert("New EmployeeDocuments Added");
+          Alert("New Employee Added");
           resetForm();
-          refreshEmployeeDocumentList();
+          refreshEmployeeList();
         });
     } else {
       applicationAPI()
-        .update(formData.get("employeeDocumentId"), formData)
+        .update(formData.get("employeeId"), formData)
         .then((res) => {
-          Alert("EmployeeDocuments Details Updated");
+          Alert("Employee Details Updated");
           resetForm();
-          refreshEmployeeDocumentList();
+          refreshEmployeeList();
         });
     }
   };
@@ -84,22 +119,22 @@ export default function EmployeeDocuments(props) {
       applicationAPI()
         .delete(id)
         .then((res) => {
-          Alert("EmployeeDocuments Type Deleted Succesfully");
-          refreshEmployeeDocumentList();
+          Alert("Employee Type Deleted Succesfully");
+          refreshCustomerList();
         })
-        .catch((err) => Alert("EmployeeDocuments Type Deleted Failed"));
+        .catch((err) => Alert("Employee Deleted Failed"));
   };
   const resetForm = () => {
     setValues(initialFieldValues);
   };
-  function refreshEmployeeDocumentList() {
+  function refreshEmployeeList() {
     applicationAPI()
       .fetchAll()
-      .then((res) => setEmployeeDocumentList(res.data))
+      .then((res) => setEmployeeList(res.data))
       .catch((err) => console.log(err));
   }
   useEffect(() => {
-    refreshEmployeeDocumentList();
+    refreshEmployeeList();
   }, []);
   const applyErrorClass = (field) =>
     field in errors && errors[field] === false ? " form-control-danger" : "";
@@ -113,44 +148,155 @@ export default function EmployeeDocuments(props) {
         <div className="col-sm-9 col-xs-12 content pt-3 pl-0">
           <form onSubmit={handleSubmit} autoComplete="off" noValidate>
             <span className="text-secondary">
-              Dashboard <i className="fa fa-angle-right" /> EmployeeDocuments Type
+              Dashboard <i className="fa fa-angle-right" />  Employee Type
             </span>
             <div className="row mt-3">
               <div className="col-sm-12">
                 <div className="mt-4 mb-3 p-3 button-container bg-white border shadow-sm">
-                  <h6 className="mb-3">EmployeeDocuments Details</h6>
+                  <h6 className="mb-3">Employee Details</h6>
                   <div className="form-group row floating-label">
                     <div className="col-sm-3 col-12">
                       <input
-                        className={"form-control" + applyErrorClass("documentName")}
-                        name="documentName"
+                        className={"form-control" + applyErrorClass("employeeNo")}
+                        name="employeeNo"
                         type="text"
-                        value={values.documentName}
+                        value={values.employeeNo}
                         onChange={handleInputChange}
                       />
-                      <label htmlFor="documentName">DocumentName</label>
+                      <label htmlFor="employeeNo">EmployeeNo</label>
                     </div>
                     <div className="col-sm-3">
                       <input
-                        className={"form-control" + applyErrorClass("employeeId")}
-                        name="employeeId"
+                        className={"form-control" + applyErrorClass("name")}
+                        name="name"
                         type="text"
-                        value={values.employeeId}
+                        value={values.name}
                         onChange={handleInputChange}
                       />
-                      <label htmlFor="employeeId">EmployeeId</label>
+                      <label htmlFor="name">Name</label>
                     </div>
                     <div className="col-sm-3">
                       <input
-                        className={"form-control" + applyErrorClass("documentUrl")}
-                        name="documentUrl"
+                        className={"form-control" + applyErrorClass("designationId")}
+                        name="designationId"
                         type="text"
-                        value={values.documentUrl}
+                        value={values.designationId}
                         onChange={handleInputChange}
                       />
-                      <label htmlFor="documentUrl">DocumentUrl</label>
+                      <label htmlFor="designationId">designationId</label>
                     </div>
                     <div className="col-sm-3">
+                      <input
+                        className={"form-control" + applyErrorClass("dateOfJoin")}
+                        name="dateOfJoin"
+                        type="date"
+                        value={values.dateOfJoin}
+                        onChange={handleInputChange}
+                      />
+                      <label htmlFor="dateOfJoin">DateOfJoin</label>
+                    </div>
+                    <div className="col-sm-3">
+                      <input
+                        className={"form-control" + applyErrorClass("dateOfLeaving")}
+                        name="dateOfLeaving"
+                        type="date"
+                        value={values.dateOfLeaving}
+                        onChange={handleInputChange}
+                      />
+                      <label htmlFor="dateOfLeaving">DateOfLeaving</label>
+                    </div>
+                    <div className="col-sm-3">
+                      <input
+                        className={"form-control" + applyErrorClass("gender")}
+                        name="gender"
+                        type="text"
+                        value={values.gender}
+                        onChange={handleInputChange}
+                      />
+                      <label htmlFor="gender">Gender</label>
+                    </div>
+                    <div className="col-sm-3">
+                      <input
+                        className={"form-control" + applyErrorClass("mobile")}
+                        name="mobile"
+                        type="text"
+                        value={values.mobile}
+                        onChange={handleInputChange}
+                      />
+                      <label htmlFor="mobile">Mobile</label>
+                    </div>
+                    <div className="col-sm-3">
+                      <input
+                        className={"form-control" + applyErrorClass("email")}
+                        name="email"
+                        type="text"
+                        value={values.email}
+                        onChange={handleInputChange}
+                      />
+                      <label htmlFor="email">Email</label>
+                    </div>
+                    <div className="col-sm-3">
+                      <input
+                        className={"form-control" + applyErrorClass("alternateMobile")}
+                        name="alternateMobile"
+                        type="text"
+                        value={values.alternateMobile}
+                        onChange={handleInputChange}
+                      />
+                      <label htmlFor="alternateMobile">AlternateMobile</label>
+                    </div>
+                    <div className="col-sm-3">
+                      <input
+                        className={"form-control" + applyErrorClass("address")}
+                        name="address"
+                        type="text"
+                        value={values.address}
+                        onChange={handleInputChange}
+                      />
+                      <label htmlFor="address">Address</label>
+                    </div>
+                    <div className="col-sm-3">
+                      <input
+                        className={"form-control" + applyErrorClass("status")}
+                        name="status"
+                        type="text"
+                        value={values.status}
+                        onChange={handleInputChange}
+                      />
+                      <label htmlFor="status">Status</label>
+                    </div>
+                    <div className="col-sm-3">
+                      <input
+                        className={"form-control" + applyErrorClass("createdDate")}
+                        name="createdDate"
+                        type="date"
+                        value={values.createdDate}
+                        onChange={handleInputChange}
+                      />
+                      <label htmlFor="createdDate">CreatedDate</label>
+                    </div>
+                    <div className="col-sm-3">
+                      <input
+                        className={"form-control" + applyErrorClass("updatedDate")}
+                        name="updatedDate"
+                        type="date"
+                        value={values.updatedDate}
+                        onChange={handleInputChange}
+                      />
+                      <label htmlFor="updatedDate">UpdatedDate</label>
+                    </div>
+                    <div className="col-sm-3">
+                      <input
+                        className={"form-control" + applyErrorClass("parentEmpId")}
+                        name="parentEmpId"
+                        type="text"
+                        value={values.parentEmpId}
+                        onChange={handleInputChange}
+                      />
+                      <label htmlFor="parentEmpId">parentEmpId</label>
+                    </div>
+                    
+                    <div className="col-sm-4">
                       <button type="submit" className="btn btn-primary mr-3">
                         Submit
                       </button>
@@ -170,27 +316,49 @@ export default function EmployeeDocuments(props) {
           <div className="table-responsive product-list">
             <table
               className="table table-bordered table-striped mt-3"
-              id="employeeDocumentList"
+              id="employeeList"
             >
               <thead>
                 <tr>
-                  <th>DocumentName</th>
-                  <th>EmployeeId</th>
-                  <th>DocumentUrl</th>
+                  <th>employeeNo</th>
+                  <th>Name</th>
+                  <th>Designations</th>
+                  <th>DateOfJoin</th>
+                  <th>DateOfLeaving</th>
+                  <th>Gender</th>
+                  <th>Mobile</th>
+                  <th>Email</th>
+                  <th>AlternateMobile</th>
+                  <th>Address</th>
+                  <th>Status</th>
+                  <th>CreatedDate</th>
+                  <th>UpdatedDate</th>
+                  <th>parentEmpId</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody>
-                {employeeDocumentList.map((emd) => (
-                  <tr key={emd.employeeDocumentId}>
-                    <td>{emd.documentName}</td>
-                    <td>{emd.employeeId}</td>
-                    <td>{emd.documentUrl}</td>
+                {employeeList.map((emp) => (
+                  <tr key={emp.employeeId}>
+                    <td>{emp.employeeNo}</td>
+                    <td>{emp.name}</td>
+                    <td>{emp.designationId}</td>
+                    <td>{emp.dateOfJoin}</td>
+                    <td>{emp.dateOfLeaving}</td>
+                    <td>{emp.gender}</td>
+                    <td>{emp.mobile}</td>
+                    <td>{emp.email}</td>
+                    <td>{emp.alternateMobile}</td>
+                    <td>{emp.address}</td>
+                    <td>{emp.status}</td>
+                    <td>{emp.createdDate}</td>
+                    <td>{emp.updatedDate}</td>
+                    <td>{emp.parentEmpId}</td>
                     <td>
                       <button
                         className="btn btn-success btn-sm mr-2"
                         onClick={() => {
-                          showEditDetails(emd);
+                          showEditDetails(emp);
                         }}
                       >
                         <i className="fas fa-pencil-alt" />
@@ -198,7 +366,7 @@ export default function EmployeeDocuments(props) {
                       <button
                         className="btn btn-danger btn-sm"
                         onClick={(e) =>
-                          onDelete(e, parseInt(emd.employeeDocumentId))
+                          onDelete(e, parseInt(emp.employeeId))
                         }
                       >
                         <i className="fas fa-trash-alt" />

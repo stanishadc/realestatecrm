@@ -10,6 +10,7 @@ import CustomerDocuments from './CustomerDocuments/Home';
 import Designations from './Designations/Home';
 import Dummy from './Dummy/Home';
 import EmployeeDocuments from './EmployeeDocuments/Home';
+import Employees from './Employees/Home';
 import LandDocuments from './LandDocuments/Home';
 import PassbookDocuments from './PassbookDocuments/Home';
 import Lands from './Lands/Home';
@@ -31,6 +32,7 @@ function App () {
           <Route path='/designations' element={<Designations/>}/>
           <Route path='/dummy' element={<Dummy/>}/>
           <Route path='/employeedocuments' element={<EmployeeDocuments/>}/>
+          <Route path='/employees' element={<Employees/>}/>
           <Route path='/landdocuments' element={<LandDocuments/>}/>
           <Route path='/passbookdocuments' element={<PassbookDocuments/>}/>
           <Route path='/lands' element={<Lands/>}/>
