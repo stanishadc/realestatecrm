@@ -120,7 +120,7 @@ export default function Lands(props) {
                 <div className="mt-4 mb-3 p-3 button-container bg-white border shadow-sm">
                   <h6 className="mb-3">Lands Details</h6>
                   <div className="form-group row floating-label">
-                    <div className="col-sm-4 col-12">
+                    <div className="col-sm-3 col-12">
                       <input
                         className={"form-control" + applyErrorClass("landname")}
                         name="landname"
@@ -130,7 +130,7 @@ export default function Lands(props) {
                       />
                       <label htmlFor="name">LandName</label>
                     </div>
-                    <div className="col-sm-4">
+                    <div className="col-sm-3">
                       <input
                         className={"form-control" + applyErrorClass("dateofpurchase")}
                         name="dateofpurchase"
@@ -140,7 +140,7 @@ export default function Lands(props) {
                       />
                       <label htmlFor="dateofpurchase">DateOfPurchase</label>
                     </div>
-                    <div className="col-sm-4">
+                    <div className="col-sm-3">
                       <input
                         className={"form-control" + applyErrorClass("landcost")}
                         name="landcost"
@@ -150,7 +150,7 @@ export default function Lands(props) {
                       />
                       <label htmlFor="landcost">LandCost</label>
                     </div>
-                    <div className="col-sm-4">
+                    <div className="col-sm-3">
                       <button type="submit" className="btn btn-primary mr-3">
                         Submit
                       </button>

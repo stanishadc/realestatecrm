@@ -51,8 +51,71 @@ app.get("/api/get/Commissions", (req,res) => {
     });
 });
 
+app.get("/api/get/Customer", (req,res) => {
+    const sqlGet = "SELECT * FROM Customer;";
+    db.query(sqlGet, (error, result) => {
+        res.send(result);
+    });
+});
+
+app.get("/api/get/CustomerDocuments", (req,res) => {
+    const sqlGet = "SELECT * FROM CustomerDocuments;";
+    db.query(sqlGet, (error, result) => {
+        res.send(result);
+    });
+});
+
+app.get("/api/get/EmployeeDocuments", (req,res) => {
+    const sqlGet = "SELECT * FROM CustomerDocuments;";
+    db.query(sqlGet, (error, result) => {
+        res.send(result);
+    });
+});
+
+app.get("/api/get/LandDocuments", (req,res) => {
+    const sqlGet = "SELECT * FROM LandDocuments;";
+    db.query(sqlGet, (error, result) => {
+        res.send(result);
+    });
+});
+
+app.get("/api/get/PassbookDocuments", (req,res) => {
+    const sqlGet = "SELECT * FROM PassbookDocuments;";
+    db.query(sqlGet, (error, result) => {
+        res.send(result);
+    });
+});
+
+app.get("/api/get/Designations", (req,res) => {
+    const sqlGet = "SELECT * FROM Designations;";
+    db.query(sqlGet, (error, result) => {
+        res.send(result);
+    });
+});
+
+app.get("/api/get/Dummy", (req,res) => {
+    const sqlGet = "SELECT * FROM Dummy;";
+    db.query(sqlGet, (error, result) => {
+        res.send(result);
+    });
+});
+
 app.get("/api/get/Lands", (req,res) => {
     const sqlGet = "SELECT * FROM Lands;";
+    db.query(sqlGet, (error, result) => {
+        res.send(result);
+    });
+});
+
+app.get("/api/get/Plots", (req,res) => {
+    const sqlGet = "SELECT * FROM Plots;";
+    db.query(sqlGet, (error, result) => {
+        res.send(result);
+    });
+});
+
+app.get("/api/get/Projects", (req,res) => {
+    const sqlGet = "SELECT * FROM Projects;";
     db.query(sqlGet, (error, result) => {
         res.send(result);
     });
